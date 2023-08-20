@@ -1,9 +1,19 @@
 :root {
     --grid-cols: 1;
     --grid-rows: 1;
+
+    font-family: 'Inter', sans-serif;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 #grid-container {
+    max-width: 960px;
     display: grid;
     grid-gap: 1em;
     grid-template-rows: repeat(var(--grid-rows), 1fr);
@@ -14,5 +24,12 @@
     padding: 1em;
     border: 1px solid #ddd;
     text-align: center;
+}
 
+.header-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
 }
