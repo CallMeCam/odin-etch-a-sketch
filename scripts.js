@@ -53,11 +53,11 @@ const gridSizeButton = document.getElementById('grid-size');
 gridSizeButton.addEventListener('click', function () {
     let gridSize = prompt("Please enter a grid size:", "16");
 
-    if (gridSize <= 100) {
+    if (gridSize <= 64) {
         clearGrid(getCells());
         makeRows(gridSize, gridSize);
     } else {
-        alert("Sorry, the maximum grid size allowed is 100.");
+        alert("Sorry, the maximum grid size allowed is 64.");
     }
 });
 
