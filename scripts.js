@@ -31,3 +31,17 @@ resetButton.addEventListener('click', function () {
         cell.style.transition = "background-color 0.3s";
     });
 });
+
+// proompt for size
+const gridSizeButton = document.getElementById('grid-size');
+
+gridSizeButton.addEventListener('click', function () {
+    let gridSize = prompt("Please enter a grid size:", "16");
+
+    if (gridSize <= 100) {
+        makeRows(gridSize, gridSize);
+    } else {
+        alert("Sorry, the maximum grid size allowed is 100.");
+    }
+    
+});
