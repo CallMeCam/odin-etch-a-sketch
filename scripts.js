@@ -9,28 +9,43 @@ function makeRows(rows, cols) {
         // cell.innerText = (c + 1);
         gridContainer.appendChild(cell).className = 'grid-item';
     };
+
+    applyHoverEffect(getCells());
 };
 
 makeRows(16, 16);
 
 // apply hover effect to grid cells
-const gridCells = document.getElementsByClassName('grid-item');
-const gridCellsArray = [...gridCells];
-
-gridCellsArray.forEach(cell => cell.addEventListener('mouseenter', function () {
-    cell.style.backgroundColor = "pink";
-    cell.style.transition = "background-color 0.3s";
-}));
+function applyHoverEffect(cells) {
+    cells.forEach(cell => cell.addEventListener('mouseenter', function () {
+        cell.style.backgroundColor = "pink";
+        cell.style.transition = "background-color 0.3s";
+    }));
+};
 
 // reset button logic
 const resetButton = document.getElementById('reset-button');
 
 resetButton.addEventListener('click', function () {
-    gridCellsArray.forEach(cell => {
+    let cells = getCells();
+
+    cells.forEach(cell => {
         cell.style.backgroundColor = "white";
         cell.style.transition = "background-color 0.3s";
     });
 });
+
+// clear grid
+function clearGrid(cells) {
+    cells.forEach(cell => cell.remove());
+}
+
+// get cells from document
+function getCells() {
+    const gridCells = document.getElementsByClassName('grid-item');
+    return [...gridCells];
+};
+
 
 // proompt for size
 const gridSizeButton = document.getElementById('grid-size');
@@ -39,9 +54,12 @@ gridSizeButton.addEventListener('click', function () {
     let gridSize = prompt("Please enter a grid size:", "16");
 
     if (gridSize <= 100) {
+        clearGrid(getCells());
         makeRows(gridSize, gridSize);
     } else {
         alert("Sorry, the maximum grid size allowed is 100.");
     }
-    
 });
+
+
+
