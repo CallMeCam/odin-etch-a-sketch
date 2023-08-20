@@ -21,3 +21,13 @@ gridCellsArray.forEach(cell => cell.addEventListener('mouseenter', function () {
     cell.style.backgroundColor = "pink";
     cell.style.transition = "background-color 0.3s";
 }));
+
+// reset button logic
+const resetButton = document.getElementById('reset-button');
+
+resetButton.addEventListener('click', function () {
+    gridCellsArray.forEach(cell => {
+        cell.style.backgroundColor = "white";
+        cell.style.transition = "background-color 0.3s";
+    });
+});

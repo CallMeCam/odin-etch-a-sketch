@@ -33,3 +33,17 @@
     align-items: center;
     margin-bottom: 30px;
 }
+
+button {
+    padding: 4px 8px;;
+    background-color: white;
+    border-radius: 8px;
+    border-style: solid;
+}
+
+button:hover {
+    background-color: gray;
+    color: white;
+    transition: 0.3s;
+    border-color: pink;
+}
